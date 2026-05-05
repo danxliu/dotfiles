@@ -33,6 +33,8 @@
     joypixels
     noto-fonts-cjk-serif
     noto-fonts-cjk-sans
+    alegreya
+    alegreya-sans
   ];
 
   environment.systemPackages = with pkgs; [

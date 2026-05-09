@@ -122,5 +122,6 @@
     mpv
     pinta
     docker
+    cheese
   ];
 }

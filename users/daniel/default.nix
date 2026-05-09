@@ -123,5 +123,6 @@
     pinta
     docker
     cheese
+    prismlauncher
   ];
 }

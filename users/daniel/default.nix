@@ -42,6 +42,17 @@
         port = 2222;
         identityFile = "~/.ssh/id_rsa";
       };
+      "koi" = {
+        hostname = "koi.ocf.berkeley.edu";
+        user = "danliu";
+        localForwards = [
+          {
+            bind.port = 8841;
+            host.address = "localhost";
+            host.port = 8841;
+          }
+        ];
+      };
     };
   };
 

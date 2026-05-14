@@ -16,6 +16,7 @@
     ../../modules/home/apps/vscode
     ../../modules/home/apps/waybar
     ../../modules/home/apps/wofi
+    ../../modules/home/apps/zathura
     ../../modules/home/apps/zed
     ../../modules/home/desktop/xdg.nix
     ../../modules/home/services/session.nix
@@ -128,7 +129,6 @@
     alacritty
     loupe
     libreoffice-fresh
-    zathura
     obs-studio
     mpv
     pinta

@@ -135,5 +135,6 @@
     docker
     cheese
     prismlauncher
+    aseprite
   ];
 }

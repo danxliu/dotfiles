@@ -123,6 +123,7 @@
     ripgrep
     tree
     xdotool
+    ncdu
     awww
     hyprlock
     pavucontrol

@@ -11,7 +11,7 @@
 
       function fish_prompt
         set_color black -b blue
-        echo -n " 󰘧 "
+        echo -n " $hostname 󰘧 "
         set_color normal
         echo -n " "
         printf '%s' (prompt_pwd --full-length-dirs 2)

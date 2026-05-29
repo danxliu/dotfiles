@@ -12,6 +12,7 @@
   # Basic Bootloader config (Assuming standard systemd-boot for modern EFI)
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.timeout = 10;
 
   networking.hostName = "acro";
 

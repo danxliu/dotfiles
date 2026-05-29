@@ -45,6 +45,7 @@
     defaultEditor = true;
   };
 
+  programs.dconf.enable = true;
   programs.tmux.enable = true;
   programs.fish.enable = true;
 

@@ -1,9 +1,24 @@
 {
+  pkgs,
   ...
 }:
 
 {
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      gutenprint
+      gutenprintBin
+      brlaser
+    ];
+  };
+
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
   services.openssh.enable = true;
 
   services.pipewire = {

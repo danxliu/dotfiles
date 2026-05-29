@@ -57,6 +57,7 @@
     networkmanagerapplet
     wl-clipboard
     lm_sensors
+    system-config-printer
   ];
 
   programs.vim = {

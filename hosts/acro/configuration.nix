@@ -23,11 +23,11 @@
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
+  hardware.nvidia-container-toolkit.enable = true;
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
-    hardware.nvidia-container-toolkit.enable = true;
     open = false;
     nvidiaSettings = false; # Not needed for headless
   };

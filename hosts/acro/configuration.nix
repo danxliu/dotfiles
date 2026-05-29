@@ -21,6 +21,15 @@
 
   networking.hostName = "acro";
 
+  services.openssh = {
+    enable = true;
+    ports = [ 2222 ];
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+    };
+  };
+
   # NVIDIA Drivers configuration (Headless)
   hardware.graphics = {
     enable = true;

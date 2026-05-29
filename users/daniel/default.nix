@@ -31,14 +31,24 @@
       AddKeysToAgent yes
     '';
     matchBlocks = {
-      "tshome" = {
-        hostname = "100.85.4.120";
+      "acro" = {
+        hostname = "192.168.50.242";
+        user = "daniel";
+        port = 2222;
+      };
+      "ts_acro" = {
+        hostname = "100.96.31.77";
+        user = "daniel";
+        port = 2222;
+      };
+      "home" = {
+        hostname = "192.168.50.233";
         user = "daniel";
         port = 2222;
         identityFile = "~/.ssh/id_rsa";
       };
-      "home" = {
-        hostname = "192.168.50.233";
+      "ts_home" = {
+        hostname = "100.85.4.120";
         user = "daniel";
         port = 2222;
         identityFile = "~/.ssh/id_rsa";

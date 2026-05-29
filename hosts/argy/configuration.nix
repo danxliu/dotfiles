@@ -19,7 +19,7 @@
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "g5md";
+  networking.hostName = "argy";
 
   hardware.bluetooth.enable = true;
   hardware.acpilight.enable = true;

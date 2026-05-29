@@ -47,4 +47,11 @@
 
   programs.tmux.enable = true;
   programs.fish.enable = true;
+
+  programs.nix-index = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
+  programs.nix-index-database.comma.enable = true;
 }

@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   ...
 }:
 
@@ -16,7 +17,7 @@
   services.avahi = {
     enable = true;
     nssmdns4 = true;
-    openFirewall = true;
+    openFirewall = lib.mkDefault true;
   };
 
   services.openssh.enable = true;

@@ -21,14 +21,28 @@
 
   networking.hostName = "acro";
 
+  networking.firewall = {
+    enable = true;
+    trustedInterfaces = [ "tailscale0" ];
+    extraCommands = ''
+      iptables -A nixos-fw -s 192.168.50.0/24 -j nixos-fw-accept
+    '';
+    extraStopCommands = ''
+      iptables -D nixos-fw -s 192.168.50.0/24 -j nixos-fw-accept || true
+    '';
+  };
+
   services.openssh = {
     enable = true;
     ports = [ 2222 ];
+    openFirewall = false;
     settings = {
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
     };
   };
+
+  services.avahi.openFirewall = false;
 
   # NVIDIA Drivers configuration (Headless)
   hardware.graphics = {

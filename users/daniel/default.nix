@@ -127,8 +127,7 @@
 
     nvtopPackages.nvidia
 
-    gemini-cli
-    github-copilot-cli
+    antigravity-cli
     poppler-utils
     ripgrep
     tree

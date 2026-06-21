@@ -94,8 +94,6 @@
 
     nvtopPackages.nvidia
 
-    gemini-cli
-    github-copilot-cli
     ripgrep
     tree
     xdotool

@@ -91,4 +91,29 @@
     enable = true;
     package = pkgs.nodejs;
   };
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc.lib
+    glib
+    nss
+    nspr
+    libX11
+    libxcb
+    libXcomposite
+    libXext
+    libXfixes
+    libXrandr
+    libXdamage
+    alsa-lib
+    mesa
+    libdrm
+    libxkbcommon
+    pango
+    cairo
+    gtk3
+    libgbm
+    atk
+    cups
+    dbus
+    expat
+  ];
 }

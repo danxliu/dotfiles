@@ -21,6 +21,8 @@
 
   networking.hostName = "argy";
 
+  networking.firewall.allowedTCPPorts = [ 8081 ];
+
   hardware.bluetooth.enable = true;
   hardware.acpilight.enable = true;
 

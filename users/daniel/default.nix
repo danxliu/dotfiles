@@ -113,37 +113,27 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
-    OPENCODE_ENABLE_EXA = "1";
   };
 
   programs.htop.enable = true;
   programs.obsidian.enable = true;
 
-  programs.opencode = {
-    enable = true;
-    context = ''
-      When reading files, use command line tools like `cat` or `grep` instead of using your built-in tools. This ensures reads hit the rtk cache.
-    '';
-    tui = {
-      theme = "system";
-    };
-    settings = {
-      tools = {
-        websearch = true;
-      };
-      agent = {
-        build = {
-          permission = {
-            edit = "ask";
-          };
-        };
-      };
-    };
-  };
-
   home.packages = with pkgs; [
     vesktop
     trayscale
+    blockbench
+    alacritty
+    loupe
+    libreoffice-fresh
+    obs-studio
+    mpv
+    pinta
+    cheese
+    prismlauncher
+    aseprite
+    wl-color-picker
+
+    pi-coding-agent
 
     tree-sitter
     pstree
@@ -152,32 +142,15 @@
     nvtopPackages.nvidia
 
     antigravity-cli
-    rtk
-
     poppler-utils
     ripgrep
     tree
     xdotool
     ncdu
     awww
+    ffmpeg
     hyprlock
     pavucontrol
-    alacritty
-    loupe
-    libreoffice-fresh
-    obs-studio
-    mpv
-    pinta
     docker
-    cheese
-    prismlauncher
-    aseprite
   ];
-
-  home.activation.setupRtk = config.lib.dag.entryAfter ["writeBoundary"] ''
-    # Only run if RTK is installed and OpenCode config exists
-    if [ -x "${pkgs.rtk}/bin/rtk" ]; then
-      ${pkgs.rtk}/bin/rtk init -g --opencode
-    fi
-  '';
 }

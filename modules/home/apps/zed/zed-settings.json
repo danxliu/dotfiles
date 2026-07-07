@@ -1,4 +1,53 @@
 {
+  "language_models": {
+    "opencode": {
+      "show_free_models": true,
+      "show_zen_models": false
+    }
+  },
+  "cli_default_open_behavior": "existing_window",
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "show_edit_predictions": true,
+  "edit_predictions": {
+    "allow_data_collection": "no",
+    "open_ai_compatible_api": {
+      "model": "deepseek-v4-flash",
+      "api_url": "https://opencode.ai/zen/go/v1/chat/completions"
+    },
+    "provider": "copilot"
+  },
+  "active_pane_modifiers": {},
+  "tabs": {
+    "file_icons": true
+  },
+  "title_bar": {
+    "show_menus": false
+  },
+  "git_panel": {
+    "dock": "left",
+    "tree_view": true
+  },
+  "agent": {
+    "default_profile": "ask",
+    "dock": "right",
+    "default_model": {
+      "effort": "xhigh",
+      "provider": "opencode",
+      "model": "go/deepseek-v4-pro",
+      "enable_thinking": true
+    },
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "window_decorations": "server",
   "minimap": {
     "thumb": "hover",
     "show": "auto"
@@ -19,15 +68,22 @@
   "ui_font_size": 16,
   "buffer_font_size": 15,
   "theme": {
-    "mode": "system",
+    "dark": "GitHub Dark",
     "light": "GitHub Light",
-    "dark": "GitHub Dark"
+    "mode": "system"
   },
   "lsp": {
     "jdtls": {
       "binary": {
         "path": "jdtls"
       }
+    }
+  },
+  "ui_font_family": "DejaVu Sans",
+  "context_servers": {
+    "code-review-graph": {
+      "command": "uvx",
+      "args": ["code-review-graph", "serve"]
     }
   }
 }

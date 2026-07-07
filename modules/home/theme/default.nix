@@ -9,7 +9,7 @@ let
   wallpaper = ./wallpapers/nixos-light.png;
   fontMonoName = "ZedMono NFM";
   fontUIName = "IBM Plex Sans";
-  fontIconName = "Material Design Icon";
+  fontIconName = "Material Design Icons";
   fontSize0 = 12;
   fontSize1 = 18;
   fontSize2 = 24;

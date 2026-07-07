@@ -2,7 +2,6 @@
   theme,
   ...
 }:
-
 {
   programs.waybar = {
     enable = true;
@@ -27,6 +26,8 @@
           "group/audio"
           "custom/separator"
           "clock"
+          "custom/separator"
+          "custom/power"
         ];
 
         "niri/workspaces" = {
@@ -104,6 +105,12 @@
         tray = {
           icon-size = 14;
           spacing = 6;
+        };
+
+        "custom/power" = {
+          format = "";
+          on-click = "systemctl hibernate";
+          tooltip = false;
         };
       };
     };

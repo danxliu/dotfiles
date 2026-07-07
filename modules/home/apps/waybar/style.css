@@ -24,7 +24,6 @@ tooltip {
     border-radius: 0.4em;
 }
 
-
 #workspaces,
 #mpris,
 #tray,
@@ -49,6 +48,12 @@ tooltip {
     font-weight: 600;
     color: @base07@;
 }
+#custom-power {
+    margin: 0.4em 0.6em;
+    font-family: @fontIcon@;
+    font-weight: 600;
+    color: @base08@;
+}
 
 #workspaces button {
     padding: 0em 0.4em;
@@ -56,7 +61,8 @@ tooltip {
     color: @base05@;
 }
 
-#workspaces button:hover, #workspaces button:focus {
+#workspaces button:hover,
+#workspaces button:focus {
     background-color: @base01@;
 }
 #workspaces button:active {

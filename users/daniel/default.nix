@@ -132,6 +132,7 @@
     prismlauncher
     aseprite
     wl-color-picker
+    android-studio
 
     pi-coding-agent
 

@@ -28,36 +28,37 @@
 
   programs.ssh = {
     enable = true;
-    extraConfig = ''
-      AddKeysToAgent yes
-    '';
-    matchBlocks = {
+    enableDefaultConfig = false;
+    settings = {
+      "*" = {
+        AddKeysToAgent = "yes";
+      };
       "acro" = {
-        hostname = "192.168.50.242";
-        user = "daniel";
-        port = 2222;
+        HostName = "192.168.50.242";
+        User = "daniel";
+        Port = 2222;
       };
       "ts_acro" = {
-        hostname = "100.96.31.77";
-        user = "daniel";
-        port = 2222;
+        HostName = "100.96.31.77";
+        User = "daniel";
+        Port = 2222;
       };
       "home" = {
-        hostname = "192.168.50.233";
-        user = "daniel";
-        port = 2222;
-        identityFile = "~/.ssh/id_rsa";
+        HostName = "192.168.50.233";
+        User = "daniel";
+        Port = 2222;
+        IdentityFile = "~/.ssh/id_rsa";
       };
       "ts_home" = {
-        hostname = "100.85.4.120";
-        user = "daniel";
-        port = 2222;
-        identityFile = "~/.ssh/id_rsa";
+        HostName = "100.85.4.120";
+        User = "daniel";
+        Port = 2222;
+        IdentityFile = "~/.ssh/id_rsa";
       };
       "koi" = {
-        hostname = "koi.ocf.berkeley.edu";
-        user = "danliu";
-        localForwards = [
+        HostName = "koi.ocf.berkeley.edu";
+        User = "danliu";
+        LocalForward = [
           {
             bind.port = 8841;
             host.address = "localhost";
@@ -133,6 +134,7 @@
     aseprite
     wl-color-picker
     android-studio
+    android-tools
 
     pi-coding-agent
 
@@ -140,8 +142,35 @@
     pstree
     texliveFull
 
-    nvtopPackages.nvidia
+    # LSPs
+    clang-tools
+    pyright
+    jdt-language-server
+    typescript-language-server
+    vscode-langservers-extracted
+    rust-analyzer
+    nixd
+    texlab
+    marksman
+    lua-language-server
+    bash-language-server
+    yaml-language-server
+    svelte-language-server
+    tailwindcss-language-server
+    emmet-language-server
+    harper
+    kotlin-language-server
 
+    # Formatters & Linters
+    nixfmt
+    black
+    shellcheck
+    prettierd
+    stylua
+    shfmt
+    ruff
+
+    nvtopPackages.nvidia
     antigravity-cli
     poppler-utils
     ripgrep

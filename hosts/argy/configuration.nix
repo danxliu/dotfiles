@@ -49,7 +49,7 @@
     };
   };
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
   services.tlp = {
     enable = true;
     settings = {

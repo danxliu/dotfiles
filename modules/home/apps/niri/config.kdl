@@ -51,8 +51,8 @@ binds {
 
 	Mod+H { focus-column-left; }
 	Mod+L { focus-column-right; }
-	Mod+J { focus-window-or-workspace-down; }
-	Mod+K { focus-window-or-workspace-up; }
+	Mod+J { focus-window-down; }
+	Mod+K { focus-window-up; }
 
 	Mod+Shift+H { move-column-left; }
 	Mod+Shift+L { move-column-right; }
@@ -116,10 +116,10 @@ binds {
   XF86MonBrightnessDown { spawn "xbacklight" "-dec" "5"; }
 }
 
-window-rule {
-    geometry-corner-radius 8
-    clip-to-geometry true
-}
+// window-rule {
+//     geometry-corner-radius 8
+//     clip-to-geometry true
+// }
 
 window-rule {
     match app-id="^thunar$" title="^Rename"
@@ -127,7 +127,7 @@ window-rule {
 }
 
 layout {
-	gaps 8
+	gaps 0
 	center-focused-column "never"
 	always-center-single-column
 
@@ -154,7 +154,7 @@ layout {
 		hide-when-single-tab
 		place-within-column
 		gap 0
-		width 12
+		width 16
 		length total-proportion=1.0
 		position "top"
 		gaps-between-tabs 0
@@ -172,44 +172,45 @@ layout {
 
 
 animations {
-    workspace-switch {
-        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
-    }
-
-    window-open {
-        duration-ms 150
-        curve "ease-out-expo"
-    }
-
-    window-close {
-        duration-ms 15
-        curve "ease-out-quad"
-    }
-
-    horizontal-view-movement {
-        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
-    }
-
-    window-movement {
-        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
-    }
-
-    window-resize {
-        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
-    }
-
-    config-notification-open-close {
-        spring damping-ratio=0.6 stiffness=1000 epsilon=0.001
-    }
-
-    screenshot-ui-open {
-        duration-ms 200
-        curve "ease-out-quad"
-    }
-
-    overview-open-close {
-        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
-    }
+    off
+    // workspace-switch {
+    //     spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+    // }
+    //
+    // window-open {
+    //     duration-ms 150
+    //     curve "ease-out-expo"
+    // }
+    //
+    // window-close {
+    //     duration-ms 15
+    //     curve "ease-out-quad"
+    // }
+    //
+    // horizontal-view-movement {
+    //     spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    // }
+    //
+    // window-movement {
+    //     spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    // }
+    //
+    // window-resize {
+    //     spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    // }
+    //
+    // config-notification-open-close {
+    //     spring damping-ratio=0.6 stiffness=1000 epsilon=0.001
+    // }
+    //
+    // screenshot-ui-open {
+    //     duration-ms 200
+    //     curve "ease-out-quad"
+    // }
+    //
+    // overview-open-close {
+    //     spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    // }
 }
 
 gestures {

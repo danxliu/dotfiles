@@ -1,7 +1,6 @@
 {
   pkgs,
   theme,
-  config,
   ...
 }:
 {
@@ -160,6 +159,7 @@
     emmet-language-server
     harper
     kotlin-language-server
+    nil
 
     # Formatters & Linters
     nixfmt

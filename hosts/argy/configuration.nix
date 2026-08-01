@@ -72,6 +72,5 @@
     gpuOffset = -30;
     analogioOffset = -50;
   };
-
   system.stateVersion = "25.11";
 }

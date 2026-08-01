@@ -1,6 +1,7 @@
 {
   pkgs,
   theme,
+  config,
   ...
 }:
 {
@@ -20,6 +21,7 @@
     ../../modules/home/apps/zed
     ../../modules/home/desktop/xdg.nix
     ../../modules/home/services/session.nix
+    ../../modules/home/services/mpd
   ];
   home.username = "daniel";
   home.homeDirectory = "/home/daniel";
@@ -179,8 +181,14 @@
     ncdu
     awww
     ffmpeg
+    ncmpcpp
+    yt-dlp
     hyprlock
     pavucontrol
     docker
   ];
+
+  home.shellAliases = {
+    ytmp3 = "yt-dlp --extract-audio --audio-format mp3 --format bestaudio --embed-thumbnail --output '${config.home.homeDirectory}/Music/%(uploader)s/%(playlist)s/%(title)s.%(ext)s'";
+  };
 }

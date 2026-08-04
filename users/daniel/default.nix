@@ -143,6 +143,7 @@
 
     pi-coding-agent
     inputs.hermes-agent.packages.x86_64-linux.desktop
+    gws
 
     tree-sitter
     pstree
@@ -196,5 +197,13 @@
 
   home.shellAliases = {
     ytmp3 = "yt-dlp --extract-audio --audio-format mp3 --format bestaudio --embed-thumbnail --embed-metadata --embed-chapters --output '${config.home.homeDirectory}/Music/%(uploader)s/%(playlist)s/%(title)s.%(ext)s'";
+  };
+
+  xdg.desktopEntries.hermes = {
+    name = "Hermes";
+    exec = "${inputs.hermes-agent.packages.x86_64-linux.desktop}/bin/hermes-desktop";
+    icon = "${inputs.hermes-agent.packages.x86_64-linux.desktop}/share/hermes-desktop/dist/hermes.png";
+    categories = [ "Development" "Utility" ];
+    terminal = false;
   };
 }

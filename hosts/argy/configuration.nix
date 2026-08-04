@@ -13,21 +13,36 @@
     inputs.hermes-agent.nixosModules.default
   ];
 
-  age.secrets.hermes-env.file = ../../secrets/hermes-env.age;
+  age.secrets.hermes-env = {
+    file = ../../secrets/hermes-env.age;
+    owner = "hermes";
+    group = "hermes";
+  };
 
   services.hermes-agent = {
     enable = true;
     addToSystemPackages = true;
+    container.enable = true;
+    container.hostUsers = [ "daniel" ];
+    container.extraVolumes = [ "/home/daniel:/home/daniel:rw" ];
     settings = {
       model = {
-        base_url = "https://opencode.ai/zen/go/v1/";
-        default = "deepseek-v4-pro";
+        provider = "opencode-go";
+        default = "deepseek-v4-flash";
+      };
+      auxiliary.vision = {
+        provider = "opencode-go";
+        model = "mimo-v2.5";
       };
       memory.provider = "mem0";
     };
     environmentFiles = [ config.age.secrets.hermes-env.path ];
-    extraDependencyGroups = [ "mem0" ];
+    environment = {
+      HERMES_GWS_BIN = "${pkgs.gws}/bin/gws";
+    };
+    extraDependencyGroups = [ "mem0" "messaging" ];
     extraPythonPackages = [ pkgs.python312Packages.fastembed ];
+    extraPackages = [ pkgs.gws ];
   };
 
   boot.loader.systemd-boot.enable = false;

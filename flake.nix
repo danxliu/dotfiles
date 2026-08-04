@@ -5,6 +5,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nur.url = "github:nix-community/NUR";
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
@@ -17,6 +21,7 @@
     inputs@{
       nixpkgs,
       home-manager,
+      agenix,
       nur,
       nix-colors,
       ...
@@ -40,6 +45,7 @@
           extraSpecialArgs = { inherit inputs; };
           sharedModules = [
             inputs.nix-index-database.homeModules.nix-index
+            inputs.agenix.homeManagerModules.default
           ];
         };
       };
@@ -61,6 +67,7 @@
             )
             ./hosts/${host}/configuration.nix
             inputs.nix-index-database.nixosModules.nix-index
+            inputs.agenix.nixosModules.default
             home-manager.nixosModules.home-manager
             homeManagerModule
           ];
@@ -80,11 +87,16 @@
           modules = [
             (./users + "/${user}/default.nix")
             inputs.nix-index-database.homeModules.nix-index
+            inputs.agenix.homeManagerModules.default
           ];
         };
     in
     {
       nixosConfigurations = lib.genAttrs hosts mkHost;
       homeConfigurations = lib.genAttrs users mkHome;
+      apps.x86_64-linux.agenix = {
+        type = "app";
+        program = "${agenix.packages.x86_64-linux.agenix}/bin/agenix";
+      };
     };
 }

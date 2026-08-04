@@ -22,6 +22,7 @@
     ../../modules/home/desktop/xdg.nix
     ../../modules/home/services/session.nix
     ../../modules/home/services/mpd.nix
+    ../../modules/home/services/gnome-keyring.nix
   ];
   home.username = "daniel";
   home.homeDirectory = "/home/daniel";
@@ -130,6 +131,7 @@
     obs-studio
     mpv
     pinta
+    gimp
     cheese
     prismlauncher
     aseprite
@@ -186,6 +188,7 @@
     hyprlock
     pavucontrol
     docker
+    gcr
   ];
 
   home.shellAliases = {

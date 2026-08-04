@@ -2,6 +2,7 @@
   pkgs,
   theme,
   config,
+  inputs,
   ...
 }:
 {
@@ -138,8 +139,10 @@
     wl-color-picker
     android-studio
     android-tools
+    openssl
 
     pi-coding-agent
+    inputs.hermes-agent.packages.x86_64-linux.desktop
 
     tree-sitter
     pstree

@@ -1,4 +1,7 @@
 {
+  inputs,
+  config,
+  pkgs,
   ...
 }:
 
@@ -7,7 +10,25 @@
     ./hardware-configuration.nix
     ../../modules/nixos/core/default.nix
     ../../modules/nixos/services/docker.nix
+    inputs.hermes-agent.nixosModules.default
   ];
+
+  age.secrets.hermes-env.file = ../../secrets/hermes-env.age;
+
+  services.hermes-agent = {
+    enable = true;
+    addToSystemPackages = true;
+    settings = {
+      model = {
+        base_url = "https://opencode.ai/zen/go/v1/";
+        default = "deepseek-v4-pro";
+      };
+      memory.provider = "mem0";
+    };
+    environmentFiles = [ config.age.secrets.hermes-env.path ];
+    extraDependencyGroups = [ "mem0" ];
+    extraPythonPackages = [ pkgs.python312Packages.fastembed ];
+  };
 
   boot.loader.systemd-boot.enable = false;
   boot.loader.timeout = 10;

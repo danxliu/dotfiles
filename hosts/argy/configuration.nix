@@ -35,6 +35,10 @@
         model = "mimo-v2.5";
       };
       memory.provider = "mem0";
+      display.pet = {
+        enabled = true;
+        slug = "blahaj";
+      };
     };
     environmentFiles = [ config.age.secrets.hermes-env.path ];
     environment = {

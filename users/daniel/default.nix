@@ -139,6 +139,8 @@
     wl-color-picker
     android-studio
     android-tools
+    godot
+    blender
     openssl
 
     pi-coding-agent

@@ -5,6 +5,9 @@
   ...
 }:
 
+let
+  home = config.users.users.daniel.home;
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -24,7 +27,10 @@
     addToSystemPackages = true;
     container.enable = true;
     container.hostUsers = [ "daniel" ];
-    container.extraVolumes = [ "/home/daniel:/home/daniel:rw" ];
+    container.extraVolumes = [ "${home}:${home}:rw" ];
+    user = "daniel";
+    group = "users";
+    createUser = false;
     settings = {
       model = {
         provider = "opencode-go";
@@ -43,8 +49,10 @@
     environmentFiles = [ config.age.secrets.hermes-env.path ];
     environment = {
       HERMES_GWS_BIN = "${pkgs.gws}/bin/gws";
+      PLAYWRIGHT_BROWSERS_PATH = "${home}/.cache/ms-playwright";
+      AGENT_BROWSER_ARGS = "--no-sandbox,--disable-dev-shm-usage";
     };
-    extraDependencyGroups = [ "mem0" "messaging" ];
+    extraDependencyGroups = [ "mem0" "messaging" "exa" ];
     extraPythonPackages = [ pkgs.python312Packages.fastembed ];
     extraPackages = [ pkgs.gws ];
   };

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, theme, ... }:
 {
   systemd.user.services.awww = {
     Unit = {
@@ -10,7 +10,12 @@
     Service = {
       Type = "simple";
       ExecStart = "${pkgs.awww}/bin/awww-daemon";
-      ExecStartPost = "${pkgs.awww}/bin/awww img ${../theme/wallpapers/nixos-light.png}";
+      ExecStartPost = "${pkgs.writeShellScript "awww-set-wallpaper" ''
+        until ${pkgs.awww}/bin/awww query >/dev/null 2>&1; do
+          sleep 0.1
+        done
+        ${pkgs.awww}/bin/awww img ${theme.wallpaper}
+      ''}";
       Restart = "on-failure";
     };
 

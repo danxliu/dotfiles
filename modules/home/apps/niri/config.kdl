@@ -229,8 +229,6 @@ gestures {
 
 prefer-no-csd
 
-spawn-at-startup "@wallpaper@"
-
 screenshot-path "~/Pictures/Screenshots/Screenshot-%Y%m%d-%H%M%S.png"
 
 environment {

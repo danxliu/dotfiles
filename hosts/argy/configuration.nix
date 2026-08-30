@@ -13,49 +13,7 @@ in
     ./hardware-configuration.nix
     ../../modules/nixos/core/default.nix
     ../../modules/nixos/services/docker.nix
-    inputs.hermes-agent.nixosModules.default
   ];
-
-  age.secrets.hermes-env = {
-    file = ../../secrets/hermes-env.age;
-    owner = "hermes";
-    group = "hermes";
-  };
-
-  services.hermes-agent = {
-    enable = true;
-    addToSystemPackages = true;
-    container.enable = true;
-    container.hostUsers = [ "daniel" ];
-    container.extraVolumes = [ "${home}:${home}:rw" ];
-    user = "daniel";
-    group = "users";
-    createUser = false;
-    settings = {
-      model = {
-        provider = "opencode-go";
-        default = "deepseek-v4-flash";
-      };
-      auxiliary.vision = {
-        provider = "opencode-go";
-        model = "mimo-v2.5";
-      };
-      memory.provider = "mem0";
-      display.pet = {
-        enabled = true;
-        slug = "blahaj";
-      };
-    };
-    environmentFiles = [ config.age.secrets.hermes-env.path ];
-    environment = {
-      HERMES_GWS_BIN = "${pkgs.gws}/bin/gws";
-      PLAYWRIGHT_BROWSERS_PATH = "${home}/.cache/ms-playwright";
-      AGENT_BROWSER_ARGS = "--no-sandbox,--disable-dev-shm-usage";
-    };
-    extraDependencyGroups = [ "mem0" "messaging" "exa" ];
-    extraPythonPackages = [ pkgs.python312Packages.fastembed ];
-    extraPackages = [ pkgs.gws ];
-  };
 
   boot.loader.systemd-boot.enable = false;
   boot.loader.timeout = 10;

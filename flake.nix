@@ -15,7 +15,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-colors.url = "github:misterio77/nix-colors";
-    hermes-agent.url = "github:NousResearch/hermes-agent";
   };
 
   outputs =
@@ -25,7 +24,6 @@
       agenix,
       nur,
       nix-colors,
-      hermes-agent,
       ...
     }:
     let
@@ -81,7 +79,7 @@
           pkgs = import nixpkgs {
             system = "x86_64-linux";
             config.allowUnfree = true;
-            overlays = [ nur.overlays.default hermes-agent.overlays.default ];
+            overlays = [ nur.overlays.default ];
           };
           extraSpecialArgs = {
             inherit inputs nix-colors;

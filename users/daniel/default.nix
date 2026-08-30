@@ -15,12 +15,12 @@
     ../../modules/home/apps/dunst
     ../../modules/home/apps/neovim
     ../../modules/home/apps/tmux
-    ../../modules/home/apps/vscode
     ../../modules/home/apps/waybar
     ../../modules/home/apps/wofi
     ../../modules/home/apps/zathura
     ../../modules/home/apps/zed
     ../../modules/home/desktop/xdg.nix
+    ../../modules/home/services/cliphist.nix
     ../../modules/home/services/session.nix
     ../../modules/home/services/mpd.nix
     ../../modules/home/services/gnome-keyring.nix
@@ -128,7 +128,7 @@
     blockbench
     alacritty
     loupe
-    libreoffice-fresh
+    libreoffice-stable
     obs-studio
     mpv
     pinta
@@ -137,14 +137,17 @@
     prismlauncher
     aseprite
     wl-color-picker
+    wl-clipboard
     android-studio
     android-tools
     godot
     blender
+    ergogen
+    freecad
+    kicad
     openssl
 
     pi-coding-agent
-    inputs.hermes-agent.packages.x86_64-linux.desktop
     gws
 
     tree-sitter
@@ -199,13 +202,5 @@
 
   home.shellAliases = {
     ytmp3 = "yt-dlp --extract-audio --audio-format mp3 --format bestaudio --embed-thumbnail --embed-metadata --embed-chapters --output '${config.home.homeDirectory}/Music/%(uploader)s/%(playlist)s/%(title)s.%(ext)s'";
-  };
-
-  xdg.desktopEntries.hermes = {
-    name = "Hermes";
-    exec = "${inputs.hermes-agent.packages.x86_64-linux.desktop}/bin/hermes-desktop";
-    icon = "${inputs.hermes-agent.packages.x86_64-linux.desktop}/share/hermes-desktop/dist/hermes.png";
-    categories = [ "Development" "Utility" ];
-    terminal = false;
   };
 }

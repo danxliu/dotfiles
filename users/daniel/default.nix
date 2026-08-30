@@ -12,6 +12,7 @@
     ../../modules/home/apps/firefox
     ../../modules/home/apps/fish
     ../../modules/home/apps/hyprlock
+    ../../modules/home/apps/lazygit
     ../../modules/home/apps/dunst
     ../../modules/home/apps/neovim
     ../../modules/home/apps/tmux

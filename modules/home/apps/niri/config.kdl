@@ -14,8 +14,8 @@ output "DP-1" {
 }
 
 output "eDP-1" {
-	mode "1920x1080@59.997"
-  scale 1.0
+	mode "1920x1080@144.003"
+  scale 1.5
 	background-color "@base00@"
 }
 

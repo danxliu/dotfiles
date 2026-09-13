@@ -17,18 +17,26 @@ in
   ];
 
   age.secrets.openrouter-key.file = ../../secrets/openrouter-key.age;
+  age.secrets.discord-key.file = ../../secrets/discord-key.age;
 
   services.hermes-agent = {
     enable = true;
+    user = "daniel";
+    group = "users";
+    createUser = false;
     addToSystemPackages = true;
     settings = {
       model = {
-        provider = "custom";
-        base_url = "http://acro:8080/v1/";
-        default = "llama.cpp";
+        provider = "openrouter";
+        default = "z-ai/glm-5.3-flash";
       };
     };
-    environmentFiles = [ config.age.secrets.openrouter-key.path ];
+    environmentFiles = [
+      config.age.secrets.openrouter-key.path
+      config.age.secrets.discord-key.path
+    ];
+    extraDependencyGroups = ["messaging"];
+    extraPackages = [ pkgs.ffmpeg ];
   };
 
   boot.loader.systemd-boot.enable = false;

@@ -4,4 +4,5 @@ let
 in
 {
   "secrets/openrouter-key.age".publicKeys = [ daniel argy ];
+  "secrets/discord-key.age".publicKeys = [ daniel argy ];
 }

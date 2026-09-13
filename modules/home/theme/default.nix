@@ -16,6 +16,7 @@ let
   fontSize3 = 32;
   fontSize4 = 48;
   fontSize5 = 72;
+  borderRadius = 0;
   replaceText =
     text:
     let
@@ -32,6 +33,7 @@ let
           "fontSize3"
           "fontSize4"
           "fontSize5"
+          "borderRadius"
         ]
       );
       replacements = (map (val: "#${val}") (builtins.attrValues palette)) ++ [
@@ -44,6 +46,7 @@ let
         (toString fontSize3)
         (toString fontSize4)
         (toString fontSize5)
+        (toString borderRadius)
       ];
     in
     builtins.replaceStrings placeholders replacements text;
@@ -65,6 +68,7 @@ in
     inherit fontSize4;
     inherit fontSize5;
     inherit wallpaper;
+    inherit borderRadius;
   };
 
   colorScheme = {

@@ -1,8 +1,9 @@
-{ lib, config, ...}:
+{ lib, config, theme, ...}:
 with lib;
 let
   cfg = config.apps.hyprlock;
   colors = config.colorScheme.palette;
+  borderRadius = theme.borderRadius;
 in
 {
   options.apps.hyprlock = {
@@ -67,7 +68,7 @@ in
             check_color = "rgb(${colors.base0D})";
             outline_thickness = 1;
             placeholder_text = "Password";
-            rounding = 8;
+            rounding = borderRadius;
             shadow_passes = 2;
             shadow_size = 8;
           }

@@ -4,7 +4,7 @@
 }
 
 #window {
-  background-color: transparent; 
+  background-color: transparent;
 }
 
 #outer-box {
@@ -12,7 +12,7 @@
   border: 2px solid @base0D@;
   background-color: @base00@;
   margin: 1em;
-  border-radius: 8px;
+  border-radius: @borderRadius@px;
 }
 
 #input {
@@ -34,7 +34,7 @@
 #entry:selected {
   background-color: @base0D@;
   box-shadow: none;
-  border-radius: 4px;
+  border-radius: @borderRadius@px;
 }
 #text:selected {
   color: @base00@;

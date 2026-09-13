@@ -2,12 +2,14 @@
   pkgs,
   lib,
   config,
+  theme,
   ...
 }:
 with lib;
 let
   cfg = config.apps.dunst;
   colors = config.colorScheme.palette;
+  borderRadius = theme.borderRadius;
 in
 {
   options.apps.dunst = {
@@ -83,7 +85,7 @@ in
           always_run_script = true;
           title = "Dunst";
           class = "Dunst";
-          corner_radius = 8;
+          corner_radius = borderRadius;
           ignore_dbusclose = false;
           force_xwayland = false;
         };

@@ -21,7 +21,6 @@ tooltip {
     font-family: @fontUI@;
     font-size: @fontSize0@px;
     font-weight: 600;
-    border-radius: 0.4em;
 }
 
 #workspaces,

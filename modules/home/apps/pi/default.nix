@@ -15,7 +15,7 @@
       };
     };
     settings = {
-      defaultModel = "z-ai/glm-5.3-flash";
+      defaultModel = "openai/gpt-6-luna";
       defaultProvider = "openrouter";
       packages = [
         "npm:@narumitw/pi-btw"

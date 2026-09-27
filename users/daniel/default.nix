@@ -201,7 +201,7 @@
     hyprlock
     pavucontrol
     docker
-    gcr
+    gcr_4
   ];
 
   home.shellAliases = {

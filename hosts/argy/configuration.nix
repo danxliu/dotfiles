@@ -28,7 +28,7 @@ in
     settings = {
       model = {
         provider = "openrouter";
-        default = "z-ai/glm-5.3-flash";
+        default = "openai/gpt-6-luna";
       };
     };
     environmentFiles = [

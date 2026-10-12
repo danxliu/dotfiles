@@ -5,11 +5,6 @@
 }:
 
 {
-  imports = [
-    ../services/common.nix
-    ../users/daniel.nix
-  ];
-
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -23,6 +18,15 @@
   time.timeZone = "America/Los_Angeles";
   i18n.defaultLocale = "en_US.UTF-8";
 
+  # Core services
+  services.openssh.enable = true;
+  services.tailscale.enable = true;
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = lib.mkDefault true;
+  };
+
   environment.systemPackages = with pkgs; [
     git
     wget
@@ -31,13 +35,14 @@
     htop
     nvtopPackages.nvidia
     gh
-    docker
     python315
     uv
     lm_sensors
     pciutils
     usbutils
     lshw
+    unzip
+    devenv
   ];
 
   programs.vim = {
@@ -45,7 +50,6 @@
     defaultEditor = true;
   };
 
-  programs.dconf.enable = true;
   programs.tmux.enable = true;
   programs.fish.enable = true;
 

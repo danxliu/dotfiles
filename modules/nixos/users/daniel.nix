@@ -6,6 +6,4 @@
     extraGroups = [ "wheel" "video" "docker" "lp" "lpadmin" "hermes" ];
     shell = pkgs.fish;
   };
-
-  home-manager.users.daniel = import ../../../users/daniel/default.nix;
 }

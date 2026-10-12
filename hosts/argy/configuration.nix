@@ -4,17 +4,21 @@
   pkgs,
   ...
 }:
-
-let
-  home = config.users.users.daniel.home;
-in
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/nixos/core/default.nix
+    ../../modules/nixos/core.nix
+    ../../modules/nixos/roles/desktop.nix
+    ../../modules/nixos/users/daniel.nix
     ../../modules/nixos/services/docker.nix
     inputs.hermes-agent.nixosModules.default
   ];
+
+  home-manager.users.daniel = {
+    imports = [
+      ../../users/daniel/default.nix
+    ];
+  };
 
   age.secrets.openrouter-key.file = ../../secrets/openrouter-key.age;
   age.secrets.discord-key.file = ../../secrets/discord-key.age;

@@ -1,14 +1,21 @@
 {
   ...
 }:
-
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/nixos/core/server.nix
+    ../../modules/nixos/core.nix
+    ../../modules/nixos/users/daniel.nix
     ../../modules/nixos/services/docker.nix
     ../../modules/nixos/services/llama-cpp.nix
   ];
+
+  home-manager.users.daniel = {
+    imports = [
+      ../../users/daniel/base.nix
+      ../../users/daniel/dev.nix
+    ];
+  };
 
   boot.loader.systemd-boot.enable = false;
   boot.loader.timeout = 10;
@@ -45,7 +52,6 @@
 
   services.avahi.openFirewall = false;
 
-  # NVIDIA Drivers configuration (Headless)
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -59,7 +65,7 @@
     powerManagement.enable = false;
     powerManagement.finegrained = false;
     open = false;
-    nvidiaSettings = false; # Not needed for headless
+    nvidiaSettings = false;
   };
 
   system.stateVersion = "25.11";

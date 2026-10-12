@@ -145,7 +145,6 @@
     godot
     blender
     ergogen
-    freecad
     kicad
     openssl
 

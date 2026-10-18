@@ -1,6 +1,7 @@
 {
   inputs,
   config,
+  lib,
   pkgs,
   ...
 }:
@@ -11,37 +12,46 @@
     ../../modules/nixos/roles/desktop.nix
     ../../modules/nixos/users/daniel.nix
     ../../modules/nixos/services/docker.nix
-    inputs.hermes-agent.nixosModules.default
   ];
 
   home-manager.users.daniel = {
     imports = [
       ../../users/daniel/default.nix
+      inputs.hermes-agent.homeManagerModules.default
     ];
-  };
 
-  age.secrets.openrouter-key.file = ../../secrets/openrouter-key.age;
-  age.secrets.discord-key.file = ../../secrets/discord-key.age;
-
-  services.hermes-agent = {
-    enable = true;
-    user = "daniel";
-    group = "users";
-    createUser = false;
-    addToSystemPackages = true;
-    settings = {
-      model = {
-        provider = "openrouter";
-        default = "deepseek/deepseek-v4.1-flash-1017";
+    programs.hermes-agent.enable = true;
+    services.hermes-agent = {
+      enable = true;
+      gateway.enable = true;
+      settings = {
+        model = {
+          provider = "openrouter";
+          default = "deepseek/deepseek-v4.1-flash-1017";
+        };
+        memory.provider = "";
       };
+      environmentFiles = [
+        config.age.secrets.openrouter-key.path
+        config.age.secrets.discord-key.path
+      ];
+      extraDependencyGroups = [ "messaging" ];
+      extraPackages = [ pkgs.ffmpeg ];
     };
-    environmentFiles = [
-      config.age.secrets.openrouter-key.path
-      config.age.secrets.discord-key.path
-    ];
-    extraDependencyGroups = ["messaging"];
-    extraPackages = [ pkgs.ffmpeg ];
   };
+
+  age.secrets.openrouter-key = {
+    file = ../../secrets/openrouter-key.age;
+    owner = "daniel";
+    mode = "0400";
+  };
+  age.secrets.discord-key = {
+    file = ../../secrets/discord-key.age;
+    owner = "daniel";
+    mode = "0400";
+  };
+
+  users.users.daniel.linger = true;
 
   boot.loader.systemd-boot.enable = false;
   boot.loader.timeout = 10;

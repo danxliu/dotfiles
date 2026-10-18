@@ -1,7 +1,6 @@
 {
   pkgs,
   theme,
-  inputs,
   ...
 }:
 
@@ -10,6 +9,7 @@
     ../../modules/home/apps/niri
     ../../modules/home/apps/alacritty
     ../../modules/home/apps/firefox
+    ../../modules/home/apps/hermes
     ../../modules/home/apps/hyprlock
     ../../modules/home/apps/dunst
     ../../modules/home/apps/waybar
@@ -63,7 +63,6 @@
     godot
     gws
     hyprlock
-    inputs.hermes-agent.packages.x86_64-linux.desktop
     kicad
     libreoffice-stable
     loupe

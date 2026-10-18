@@ -15,7 +15,7 @@
       };
     };
     settings = {
-      defaultModel = "openai/gpt-6-luna";
+      defaultModel = "deepseek/deepseek-v4.1-flash-1017";
       defaultProvider = "openrouter";
       packages = [
         "npm:@narumitw/pi-btw"

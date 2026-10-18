@@ -32,7 +32,7 @@
     settings = {
       model = {
         provider = "openrouter";
-        default = "openai/gpt-6-luna";
+        default = "deepseek/deepseek-v4.1-flash-1017";
       };
     };
     environmentFiles = [

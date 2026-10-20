@@ -24,11 +24,17 @@
         Cryptomining = true;
         Fingerprinting = true;
       };
+      SearchEngines = {
+        Default = "DuckDuckGo";
+        PreventInstalls = false;
+      };
     };
 
     profiles.default = {
       isDefault = true;
       search.force = true;
+      search.default = "ddg";
+      search.order = [ "ddg" ];
       settings = {
         "browser.startup.homepage" = "https://danxliu.com/startpage";
         "sidebar.revamp" = true;
